@@ -1,4 +1,6 @@
-# Out-of-Distribution Generalization on Graphs via Progressive Reasoning
+# Out-of-Distribution Generalization on Graphs via Progressive Inference
+
+
 
 ## Datasets
 The data is available [here](https://pan.baidu.com/s/1BfBLtey_RiqyX7EoVAA_BA), extraction code: z4m1
