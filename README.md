@@ -1,6 +1,6 @@
 # Out-of-Distribution Generalization on Graphs via Progressive Inference
 
-<img src="https://github.com/yimingxu24/GPro/blob/main/framework.svg">
+<img src="https://github.com/yimingxu24/GPro/blob/main/framework.svg" width="100%">
 
 ## Datasets
 The data is available [here](https://pan.baidu.com/s/1BfBLtey_RiqyX7EoVAA_BA), extraction code: z4m1
