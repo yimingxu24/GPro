@@ -69,7 +69,7 @@ class GCNLayer(nn.Module):
             #print("log:", feature.size(), data_mask_node.size())
         if data_mask_node is not None:
             feature = feature * data_mask_node
-        # TODO 很怪，好像进不到else
+
         if self.dgl_builtin == False:
             g.ndata['h'] = feature
             g.update_all(msg, reduce)
