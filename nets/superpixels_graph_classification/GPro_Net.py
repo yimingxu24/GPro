@@ -10,7 +10,7 @@ import torch.autograd as autograd
 import numpy as np
 
 
-class GCoTNet(nn.Module):
+class GProNet(nn.Module):
     def __init__(self, net_params):
         super().__init__()
         in_dim = net_params['in_dim']
@@ -37,7 +37,7 @@ class GCoTNet(nn.Module):
         self.feat_transform = nn.Linear(hidden_dim, 64)
         self.mlp = MLPReadout(hidden_dim * 2 + 1, 1)
 
-        self.layers = nn.ModuleList([GCoTLayer(hidden_dim, hidden_dim, hidden_dim, F.relu, dropout,
+        self.layers = nn.ModuleList([GProLayer(hidden_dim, hidden_dim, hidden_dim, F.relu, dropout,
                                               self.n_ks, self.batch_norm, self.residual)])
         self.layers.append(GCN(hidden_dim, hidden_dim, out_dim, F.relu, dropout, self.batch_norm, self.residual))
 
@@ -73,7 +73,7 @@ class GCoTNet(nn.Module):
         return results
     
 
-class GCoTLayer(nn.Module):
+class GProLayer(nn.Module):
     def __init__(self, in_dim, hid_dim, out_dim, activation, dropout, ks, batch_norm, residual=False):
         super().__init__()
 
