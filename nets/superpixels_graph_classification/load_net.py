@@ -13,7 +13,7 @@ from nets.superpixels_graph_classification.mlp_net import MLPNet
 from nets.superpixels_graph_classification.ring_gnn_net import RingGNNNet
 from nets.superpixels_graph_classification.three_wl_gnn_net import ThreeWLGNNNet
 from nets.superpixels_graph_classification.gcnii_net import GCNIINet
-from nets.superpixels_graph_classification.GCoT_Net import GCoTNet
+from nets.superpixels_graph_classification.GPro_Net import GProNet
 
 
 def GatedGCN(net_params):
@@ -49,8 +49,8 @@ def ThreeWLGNN(net_params):
 def Masker(net_params):
     return GCNMasker(net_params)
 
-def GCoT(net_params):
-    return GCoTNet(net_params)
+def GPro(net_params):
+    return GProNet(net_params)
 
 
 
@@ -66,7 +66,7 @@ def gnn_model(MODEL_NAME, net_params):
         'RingGNN': RingGNN,
         '3WLGNN': ThreeWLGNN,
         'GCNII':GCNII,
-        'GCoT': GCoT
+        'GPro': GPro
     }
         
     return models[MODEL_NAME](net_params)
