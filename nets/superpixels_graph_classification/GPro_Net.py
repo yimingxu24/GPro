@@ -67,7 +67,6 @@ class GProNet(nn.Module):
         loss = criterion(pred, label)
         return loss
    
-
     def test(self, g, h, e, data_mask=None, data_mask_node=None):
         results = self.forward(g, h, None, data_mask, None)
         return results
@@ -93,7 +92,6 @@ class GProLayer(nn.Module):
         for i in range(len(self.ks)):
             self.gcns.append(GCN(self.in_dim, self.hid_dim, self.out_dim, self.activation, self.dropout, self.batch_norm, self.residual))
             self.CoTs.append(CoT(ks[i], self.out_dim, self.dropout))
-
 
 
     def forward(self, g, h, largest, data_mask = None):
@@ -146,7 +144,6 @@ class GCN(nn.Module):
         return h
 
 
-
 class CoT(nn.Module):
 
     def __init__(self, k, in_dim, dropout):
@@ -159,12 +156,10 @@ class CoT(nn.Module):
         self.mlp = MLPReadout(64 * 2 + 1, 1)
         self.feat_transform = nn.Linear(in_dim + 1, 64)
 
-
     def forward(self, g, h, largest):
         scores = self.concat_mlp_score(g, h)
 
         return top_k_edge_graph(scores, g, h, self.k, largest)
-
 
     def concat_mlp_score(self, g, h):
         row, col = g.edges()
